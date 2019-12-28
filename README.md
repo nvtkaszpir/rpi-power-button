@@ -47,6 +47,8 @@ sudo systemctl start power-button
 - if your rpi is lacking power from power source then shutdown event
   may not be triggered - make sure you shut down device before power
   source is under certain threshold (there are special addons/hats for that)
+- sometimes if your rpi is overloaded it may take more time to keep and hold
+  the button to actually trigger shutdown
 - your pull request may be rejected if I do not feel I need it
 
 ## Other
