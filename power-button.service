@@ -1,0 +1,19 @@
+# systemd unit
+
+[Unit]
+Description=RaspberryPi 3 shutdown on power button
+
+[Service]
+Type=simple
+#ExecStartPre=/bin/sleep 120
+ExecStart=/usr/bin/python3 /home/pi/src/rpi-power-button/power-button.py
+Restart=always
+RestartSec=15
+User=pi
+Group=pi
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=power-button
+
+[Install]
+WantedBy=multi-user.target
