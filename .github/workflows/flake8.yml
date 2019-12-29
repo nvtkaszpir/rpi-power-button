@@ -1,9 +1,7 @@
+---
 name: flake8
 
-on:
-  push:
-    paths:
-      - '*.py'
+on: [push]  # yamllint disable-line rule:truthy
 
 jobs:
   flake8_py3:
