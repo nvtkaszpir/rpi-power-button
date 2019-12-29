@@ -2,6 +2,7 @@
 name: 'Yamllint GitHub Actions'
 on:  # yamllint disable-line rule:truthy
   - push
+  - pull_request
 
 jobs:
   yamllint:

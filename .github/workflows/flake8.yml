@@ -3,6 +3,7 @@ name: flake8
 
 on:  # yamllint disable-line rule:truthy
   - push
+  - pull_request
 
 jobs:
   flake8_py3:
