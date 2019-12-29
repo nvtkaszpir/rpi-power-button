@@ -1,7 +1,9 @@
 ---
 name: Docs lint
 
-on: [push]  # yamllint disable-line rule:truthy
+on:  # yamllint disable-line rule:truthy
+  - push
+  - pull_request
 
 jobs:
   docs:
