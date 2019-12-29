@@ -14,6 +14,7 @@
 5. revert from DEMO mode, restart service.
 
 In default setup:
+
 - when rpi turns on then green led is constantly on
 - when pressing key for 2s then shutdown function is executed,
   this will cause green led to start to blink slow, then will blink
