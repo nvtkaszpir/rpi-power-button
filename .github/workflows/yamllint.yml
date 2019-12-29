@@ -10,11 +10,18 @@ jobs:
     steps:
       - name: 'Checkout'
         uses: actions/checkout@master
+      - name: "check env vars"
+        run: |
+          export | sort
+          env | sort
+          ls -la
+          cat "${GITHUB_EVENT_PATH}"
+
       - name: 'Yamllint'
-        uses: karancode/yamllint-github-action@master
+        uses: nvtkaszpir/yamllint-github-action@master
         with:
           yamllint_file_or_dir: '.'
           yamllint_strict: false
           yamllint_comment: true
         env:
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
