@@ -1,5 +1,5 @@
 ---
-name: CI
+name: Docs lint
 
 on: [push]
 
