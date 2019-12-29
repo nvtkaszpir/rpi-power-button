@@ -1,7 +1,8 @@
 ---
 name: flake8
 
-on: [push]  # yamllint disable-line rule:truthy
+on:  # yamllint disable-line rule:truthy
+  - push
 
 jobs:
   flake8_py3:
