@@ -35,7 +35,14 @@ TRIGGER_SHUTDOWN = "timer"
 
 
 def led_control(trigger, led):
-    """Set specific led state based on trigger."""
+    """
+    Set specific led state based on trigger.
+
+    Args:
+        trigger (str): trigger name to apply to led
+        led (str): led name
+
+    """
     # change led status to specific trigger
     print(
         "led_control: setting trigger: '{trigger}' for led '{led}'...".format(
@@ -59,11 +66,12 @@ def led_control(trigger, led):
 
 
 def shutdown(button):
-    """Run shutdown command on button pressed.
+    """
+    Run shutdown command on button pressed.
 
     DEMO var controls if the actual shutdown command is executed.
 
-    Notice: Smut be single param passed, due to gpiozero docs.
+    Notice: Must be single param passed, due to gpiozero docs.
     """
     print("Running shutdown due to key event on pin {}".format(button.pin))
     sys.stdout.flush()
@@ -83,7 +91,8 @@ def shutdown(button):
 
 
 def main():
-    """Execute main key logic.
+    """
+    Execute main key logic.
 
     You need to restart systemd service if you make any code changes.
     """
