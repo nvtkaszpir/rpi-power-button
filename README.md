@@ -10,14 +10,16 @@
 1. install as in installation section below
 2. adjust src/rpi-power-button/power-button.py top section and systemd files
 3. restart systemd service
-4. press desired gpio button, see if if the shutdown triggers work as expected
-5. revert from DEMO mode, restart service.
+4. press desired gpio button, see if the shutdown trigger works as expected
+5. revert from `DEMO` mode, restart service.
 
 In default setup:
 
-- when rpi turns on then green led is constantly on
+- when rpi turns on then green led is flashing for a moment,
+  after system boot sequence is completed then led is constantly lit,
+  no blinking
 - when pressing key for 2s then shutdown function is executed,
-  this will cause green led to start to blink slow, then will blink
+  this will cause green led to start to blink slow, then it will blink
   faster (probably system thing), for a short time (1s?) it will
   glow without blinking and then finally led will be totally off
 - when the green led is off it is safe to unplug the power from rpi
@@ -25,7 +27,7 @@ In default setup:
 ## Installation
 
 - enable gpio in rpi3, see [luma-led-matrix docs](https://luma-led-matrix.readthedocs.io/en/latest/install.html)
-- install deps
+- install deps, as follows
 
 ```bash
 sudo usermod -a -G spi,gpio pi
