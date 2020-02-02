@@ -11,27 +11,27 @@ from gpiozero import Button
 # config section start
 
 # set to True to not to really trigger system shutdown, but just print message
-DEMO = bool(os.getenv('DEMO', default='True'))
+DEMO = bool(os.getenv("DEMO", default="True"))
 
 # BCM GPIO pin to use, for example if you use GPIO27 then you type in here 27
 # for reference see https://github.com/splitbrain/rpibplusleaf
-BUTTON_GPIO_PIN = int(os.getenv('BUTTON_GPIO_PIN', default='27'))
+BUTTON_GPIO_PIN = int(os.getenv("BUTTON_GPIO_PIN", default="27"))
 
 # how long to keep key pressed to trigger shutdown function
-KEY_HOLD_TIME_SECONDS = int(os.getenv('KEY_HOLD_TIME_SECONDS', default='2'))
+KEY_HOLD_TIME_SECONDS = int(os.getenv("KEY_HOLD_TIME_SECONDS", default="2"))
 
 # which led to control, on rpi3b+ led0 is green and usually assigned to mmc
 # led1 is red and is assigned to power
-LED = os.getenv('LED', default='led0')
+LED = os.getenv("LED", default="led0")
 
 # what kind of trigger to assign to led on start,
 # to see all available triggers, run sudo cat /sys/class/leds/led0/trigger
 # set to 'none' to keep it constantly bright on
-TRIGGER_START = os.getenv('TRIGGER_START', default='none')
+TRIGGER_START = os.getenv("TRIGGER_START", default="none")
 
 # what kind of trigger to assign to led on shutdown
 # set it to 'timer' to blink
-TRIGGER_SHUTDOWN = os.getenv('TRIGGER_SHUTDOWN', default='timer')
+TRIGGER_SHUTDOWN = os.getenv("TRIGGER_SHUTDOWN", default="timer")
 
 # config section end
 
