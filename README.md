@@ -77,7 +77,7 @@ sudo systemctl edit --full power-button.service
 ```
 
 This will create an override for default file.
-
+Uncomment and edit desired `Environment` lines.
 After adjusting systemd unit file remember to run:
 
 ```bash
