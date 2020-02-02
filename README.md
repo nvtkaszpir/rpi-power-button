@@ -73,11 +73,15 @@ List of environmental vars used to control the app:
 You can override current systemd unit file by running command:
 
 ```bash
-sudo systemctl edit --full power-button.service
+sudo systemctl edit --full power-button
 ```
 
 This will create an override for default file.
 Uncomment and edit desired `Environment` lines.
+
+If overriden systemd file shows old content run daemon reload and delete file
+`/etc/systemd/system/power-button.service` and try again.
+
 After adjusting systemd unit file remember to run:
 
 ```bash
