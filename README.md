@@ -7,11 +7,12 @@
 
 ## Usage
 
-1. install as in installation section below
-2. adjust src/rpi-power-button/power-button.py top section and systemd files
-3. restart systemd service
-4. press desired gpio button, see if the shutdown trigger works as expected
-5. revert from `DEMO` mode, restart service.
+1. read this file from start to end :)
+2. install as in installation section below
+3. adjust environment vars of systemd files
+4. restart systemd service
+5. press desired gpio button, see if the shutdown trigger works as expected
+6. revert from `DEMO` mode, restart service.
 
 In default setup:
 
@@ -26,7 +27,6 @@ In default setup:
 
 ## Installation
 
-- enable gpio in rpi3, see [luma-led-matrix docs](https://luma-led-matrix.readthedocs.io/en/latest/install.html)
 - install deps, as follows
 
 ```bash
@@ -44,9 +44,44 @@ sudo systemctl enable power-button
 sudo systemctl start power-button
 ```
 
+## Configuration
+
+List of environmental vars used to control the app:
+
+- `DEMO`: controls if the app executes real command to shutdown system
+   or just prints generic message that the action was triggered.
+   Set to 'True' or 'False', default is 'True' for easier debug.
+   Given value is converted to boolean.
+- `BUTTON_GPIO_PIN`: BCM GPIO pin number to use, converted to integer.
+  For example if you use 'GPIO27' then you type in here '27'.
+  For reference see [rpi b plus leaf](https://github.com/splitbrain/rpibplusleaf)
+- `KEY_HOLD_TIME_SECONDS`: how many seconds key needs to be pressed
+  so that action is triggered. This is to prevent accidental key presses.
+  Converted to integer, defaults to '2'.
+- `LED`: led name to use to change when action is triggered.
+  Defaults to 'led0'.
+  On rpi3b+ 'led0' is green and usually assigned to mmc card activity,
+  while 'led1' is red and is assigned to power.
+- `TRIGGER_START`: what kind of trigger to assign to led on start of app,
+  to see all available triggers, run `sudo cat /sys/class/leds/led0/trigger`
+  set to 'none' to keep it constantly bright on.
+  Notice, this depends on current kernel on the rpi.
+- `TRIGGER_SHUTDOWN`: what kind of trigger to assign to led on shutdown
+  For example set it to 'timer' to blink once per second.
+  To see all available triggers, run `sudo cat /sys/class/leds/led0/trigger`
+
+After adjusting systemd unit file remember to run:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart power-button
+```
+
 ## Known limitations
 
-- adjust files to your needs
+- adjust files to your needs manually
+- on systemctl service stop the default led trigger is not restored,
+  restart device to restore it.
 - if your rpi is lacking power from power source then shutdown event
   may not be triggered - make sure you shut down device before power
   source is under certain threshold (there are special addons/hats for that)
