@@ -70,6 +70,14 @@ List of environmental vars used to control the app:
   For example set it to 'timer' to blink once per second.
   To see all available triggers, run `sudo cat /sys/class/leds/led0/trigger`
 
+You can override current systemd unit file by running command:
+
+```bash
+sudo systemctl edit --full power-button.service
+```
+
+This will create an override for default file.
+
 After adjusting systemd unit file remember to run:
 
 ```bash
