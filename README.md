@@ -89,6 +89,12 @@ sudo systemctl daemon-reload
 sudo systemctl restart power-button
 ```
 
+To see the service logs, use for example:
+
+```bash
+sudo journalctl -u power-button -n 200 -f
+```
+
 ## Known limitations
 
 - adjust files to your needs manually
