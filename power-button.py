@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+from distutils.util import strtobool
 import os
 import sys
 import time
@@ -11,7 +11,7 @@ from gpiozero import Button
 # config section start
 
 # set to True to not to really trigger system shutdown, but just print message
-DEMO = bool(os.getenv("DEMO", default="True"))
+DEMO = strtobool(os.getenv("DEMO", default="True"))
 
 # BCM GPIO pin to use, for example if you use GPIO27 then you type in here 27
 # for reference see https://github.com/splitbrain/rpibplusleaf
