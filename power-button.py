@@ -3,16 +3,18 @@
 import os
 import sys
 import time
-from gpiozero import Button
-from subprocess import check_call
 from signal import pause
+from subprocess import check_call
+from gpiozero import Button
+
 
 # config section start
 
 # set to True to not to really trigger system shutdown, but just print message
 DEMO = False
 
-# gpio pin to use
+# GPIO pin to use, for example if you use GPIO27 then you type in here 27
+# for reference see https://github.com/splitbrain/rpibplusleaf
 BUTTON_GPIO_PIN = 27
 
 # how long to keep key pressed to trigger shutdown function
