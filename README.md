@@ -3,7 +3,7 @@
 ## Requirements
 
 - Python 3
-- Raspberry Pi 3 (probably after some adjustments can work with other pi)
+- Raspberry Pi 3 and 4 (probably after some adjustments can work with other pi)
 
 ## Usage
 
@@ -30,7 +30,9 @@ In default setup:
 - install deps, as follows
 
 ```bash
+# not longer needed when using desktop rpi 4 + enabled spi and i2c in raspi-config
 sudo usermod -a -G spi,gpio pi
+
 sudo apt-get update
 sudo apt-get install -y python3-gpiozero git
 
@@ -38,6 +40,8 @@ mkdir -p /home/pi/src
 cd /home/pi/src/
 git clone https://github.com/nvtkaszpir/rpi-power-button.git
 cd rpi-power-button
+# edit file power-button.service and uncomment Environment lines and adjust them
+# then save the file and continue
 sudo cp -f power-button.service /lib/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable power-button
