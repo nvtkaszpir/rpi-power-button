@@ -9,11 +9,13 @@ Environment=DEMO=false
 Environment=BUTTON_GPIO_PIN=21
 #Environment=KEY_HOLD_TIME_SECONDS=2
 Environment=LED=ACT
+Environment=GPIOZERO_PIN_FACTORY=lgpio
+Environment=LG_WD=/home/pi/
 ExecStart=/usr/bin/python3 /home/pi/src/rpi-power-button/power-button.py
 Restart=always
 RestartSec=15
 User=pi
-Group=pi
+Group=gpio
 SyslogIdentifier=power-button
 
 [Install]

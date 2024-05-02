@@ -6,6 +6,7 @@
 - add changelog
 - remove obsolete params from systemd unit, see rpi4/ folder
 - minor updates to readme
+- fix [libgpio runing under systemd in virtualenv](https://github.com/gpiozero/gpiozero/issues/1131)
 
 ## 2024.05.02 - v1.0.0
 
