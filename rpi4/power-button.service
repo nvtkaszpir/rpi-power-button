@@ -16,7 +16,8 @@ Restart=always
 RestartSec=15
 User=pi
 Group=gpio
-SyslogIdentifier=power-button
+#SyslogIdentifier=power-button
+WorkingDirectory=/home/pi/src/rpi-power-button/
 
 [Install]
 WantedBy=multi-user.target

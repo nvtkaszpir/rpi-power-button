@@ -1,5 +1,10 @@
 # Changelog
 
+## 2025.07.24 - v1.1.1
+
+- rpi4/ fix issues with permissions by adding `WorkingDirectory`
+- rpi4/ drop `SyslogIdentifier`, because Journald is a default logger now
+
 ## 2024.05.03 - v1.1.0
 
 - update to run under RPI 4 with kernel 6, led0 renamed to `ACT`
